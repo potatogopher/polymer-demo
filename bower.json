@@ -1,0 +1,25 @@
+{
+  "name": "wheel-web",
+  "authors": [
+    "Daniel Gubler <danielcgubler@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.4.0",
+    "page": "page.js#^1.7.1",
+    "platinum-sw": "PolymerElements/platinum-sw#^1.3.0",
+    "web-component-tester": "Polymer/web-component-tester#^4.2.2",
+    "vaadin-core-elements": "^1.0.0"
+  }
+}

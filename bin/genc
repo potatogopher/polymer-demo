@@ -1,0 +1,59 @@
+#!/bin/bash
+
+component_path='.'
+
+if [ -z "$1" ]; then
+  echo "No arguments supplied. Use \`genc <element-name> [path]\`"
+  exit 1
+fi
+
+if ! [ -z "$2" ]; then
+  if ! [ -d "$2" ]; then
+    echo "Invalid path supplied"
+    exit 1
+  else
+    component_path=$2
+  fi
+fi
+
+if [ -e "$component_path/$1" ]; then
+  echo "A directory or file already exists at $component_path/$1"
+  exit 1
+fi
+
+mkdir $component_path/$1
+touch $component_path/$1/$1.html
+touch $component_path/$1/$1.js
+touch $component_path/$1/$1-css.html
+
+cat > $component_path/$1/$1.html <<EOL
+<link rel="import" href="$1-css.html">
+<dom-module id="$1">
+  <template>
+    <style include="$1-css"></style>
+
+  </template>
+  <script src="$1.js"></script>
+</dom-module>
+EOL
+
+cat > $component_path/$1/$1.js <<EOL
+Polymer({
+  is: '$1',
+  properties: { },
+  listeners: { }
+})
+EOL
+
+
+cat > $component_path/$1/$1-css.html <<EOL
+<dom-module id="$1-css">
+<template>
+<style>
+/*--------------------------------------------------*/
+
+/*--------------------------------------------------*/
+</style>
+</template>
+</dom-module>
+EOL

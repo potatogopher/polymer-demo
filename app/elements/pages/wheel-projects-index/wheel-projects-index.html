@@ -1,0 +1,23 @@
+<link rel="import" href="wheel-projects-index-css.html">
+<dom-module id="wheel-projects-index">
+  <template>
+    <style include="wheel-projects-index-css"></style>
+    <h1>Projects</h1>
+
+    <vaadin-grid class="projects-grid">
+      <table>
+        <colgroup>
+          <col name="name">
+          <col name="startDate">
+        </colgroup>
+        <thead>
+          <tr>
+            <th colspan="1">Name</th>
+            <th colspan="1">Start Date</th>
+          </tr>
+        </thead>
+      </table>
+    </vaadin-grid>
+  </template>
+  <script src="wheel-projects-index.js"></script>
+</dom-module>
